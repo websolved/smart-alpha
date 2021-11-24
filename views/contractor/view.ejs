@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Alpha Smart | Profile</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/admin/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+	<link href="/admin/plugins/superbox/superbox.min.css" rel="stylesheet" />
+	<link href="/admin/plugins/lity/dist/lity.min.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<span class="spinner"></span>
+	</div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand"><span class="navbar-logo"></span> <b>Alpha</b>smart</a>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- end navbar-header --><!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+                <li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+						<i class="fa fa-bell"></i>
+						<span class="label">0</span>
+					</a>
+					<div class="dropdown-menu media-list dropdown-menu-right">
+						<div class="dropdown-header">NOTIFICATIONS (0)</div>
+						<div class="text-center width-300 p-b-10 p-t-10">
+							No notification found
+						</div>
+					</div>
+				</li>
+				<li class="dropdown navbar-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<%= user.profileImagePath %>" alt="" /> 
+						<span class="d-none d-md-inline"><%= user.firstname %> <%= user.lastname %> </span> <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="javascript:;" class="dropdown-item">Edit Profile</a>
+						<!--<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>
+						<a href="javascript:;" class="dropdown-item">Calendar</a>
+						<a href="javascript:;" class="dropdown-item">Setting</a>-->
+						<div class="dropdown-divider"></div>
+						<form action="/logout?_method=DELETE" method="POST">
+							<button type="submit" class="dropdown-item">Log Out</button>
+						</form>
+					</div>
+				</li>
+			</ul>
+			<!-- end header-nav -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<a href="javascript:;" data-toggle="nav-profile">
+							<div class="cover with-shadow"></div>
+							<div class="image">
+								<img src="<%= user.profileImagePath %>" alt="" />
+							</div>
+							<div class="info">
+								<b class="caret pull-right"></b><%= user.firstname %>  <%= user.lastname %> 
+								<small>Admin</small>
+							</div>
+						</a>
+					</li>
+					<li>
+						<ul class="nav nav-profile">
+							<!--<li><a href="javascript:;"><i class="fa fa-cog"></i> Settings</a></li>-->
+							<li><a href="javascript:;"><i class="fa fa-pencil-alt"></i> Send Feedback</a></li>
+							<li><a href="javascript:;"><i class="fa fa-question-circle"></i> Help</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav"><li class="nav-header">Navigation</li>
+					<li>
+						<a href="/">
+							<i class="fa fa-home"></i>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a href="/registrations">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Registrations</span>
+						</a>
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-users"></i>
+							<span>Contractors</span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/contractor">
+									<!--<b class="caret"></b>-->
+									View All
+								</a>
+								<!--<ul class="sub-menu">
+									<li class="has-sub">
+										<a href="javascript:;">
+											<b class="caret"></b>
+											Menu 2.1
+										</a>
+										<ul class="sub-menu">
+											<li><a href="javascript:;">Menu 3.1</a></li>
+											<li><a href="javascript:;">Menu 3.2</a></li>
+										</ul>
+									</li>
+									<li><a href="javascript:;">Menu 2.2</a></li>
+									<li><a href="javascript:;">Menu 2.3</a></li>
+								</ul>-->
+							</li>
+							<li><a href="/contractors/add">Add New</a></li>
+							<!--<li><a href="javascript:;">Menu 1.3</a></li>-->
+						</ul>
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-tags"></i>
+							<span>Products</span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/products">
+									View All
+								</a>
+							</li>
+							<li>
+								<a href="/products/add">
+									Add New
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-rupee-sign" aria-hidden="true"></i>
+							<span>Payments</span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/payments/pending">
+									Pending
+								</a>
+							</li>
+							<li>
+								<a href="/payments">
+									View All
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Support</span>
+						</a>
+					</li>
+					<!-- begin sidebar minify button
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					 end sidebar minify button -->
+
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content content-full-width">
+			<!-- begin profile -->
+			<div class="profile">
+				<div class="profile-header">
+					<!-- BEGIN profile-header-cover -->
+					<div class="profile-header-cover"></div>
+					<!-- END profile-header-cover -->
+					<!-- BEGIN profile-header-content -->
+					<div class="profile-header-content">
+						<!-- BEGIN profile-header-img -->
+						<div class="profile-header-img">
+							<img src="<%= contractor.profileImagePath %>" alt="">
+						</div>
+						<!-- END profile-header-img -->
+						<!-- BEGIN profile-header-info -->
+						<div class="profile-header-info">
+							<h4 class="mt-0 mb-1"><%= contractor.firstname %> <%= contractor.lastname %></h4>
+							<p class="mb-2" style="text-transform: capitalize;"><%= contractor.role %></p>
+							<a href="#" class="btn btn-xs btn-yellow">Edit Profile</a>
+						</div>
+						<!-- END profile-header-info -->
+					</div>
+					<!-- END profile-header-content -->
+					<!-- BEGIN profile-header-tab -->
+					<ul class="profile-header-tab nav nav-tabs">
+						<!--<li class="nav-item"><a href="#profile-post" class="nav-link active" data-toggle="tab">POSTS</a></li>-->
+						<li class="nav-item"><a href="#profile-about" class="nav-link active" data-toggle="tab">ABOUT</a></li>
+						<!--<li class="nav-item"><a href="#profile-photos" class="nav-link" data-toggle="tab">PHOTOS</a></li>
+						<li class="nav-item"><a href="#profile-videos" class="nav-link" data-toggle="tab">VIDEOS</a></li>-->
+						<!--<li class="nav-item"><a href="#profile-friends" class="nav-link" data-toggle="tab">FRIENDS</a></li>-->
+					</ul>
+					<!-- END profile-header-tab -->
+				</div>
+			</div>
+			<!-- end profile -->
+			<!-- begin profile-content -->
+			<div class="profile-content">
+				<!-- begin tab-content -->
+				<div class="tab-content p-0">
+					<!-- begin #profile-about tab -->
+					<div class="tab-pane fade fade show active" id="profile-about">
+						<!-- begin table -->
+						<div class="table-responsive form-inline">
+							<table class="table table-profile">
+								<thead>
+									<tr>
+										<th></th>
+										<th>
+											<h4><%= contractor.firstname %> <%= contractor.lastname %> <small style="text-transform: capitalize;"><%= contractor.role %></small></h4>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="highlight">
+										<td class="field">GST No</td>
+										<td><a href="javascript:;"><%= contractor.gst %></a></td>
+									</tr>
+									<tr class="divider">
+										<td colspan="2"></td>
+									</tr>
+									<tr>
+										<td class="field">Mobile</td>
+										<td><i class="fa fa-mobile fa-lg m-r-5"></i>+91 <%= contractor.phone %> <a href="javascript:;" class="m-l-5">Edit</a></td>
+									</tr>
+									<tr>
+										<td class="field">Email</td>
+										<td><a href="javascript:;"><%= contractor.email %> </a></td>
+									</tr>
+									<tr class="divider">
+										<td colspan="2"></td>
+									</tr>
+									<tr class="highlight">
+										<td class="field">About Me</td>
+										<td><a href="javascript:;">Add Description</a></td>
+									</tr>
+									<tr class="divider">
+										<td colspan="2"></td>
+									</tr>
+									<tr>
+										<td class="field valign-middle">Country/Region</td>
+										<td class="with-form-control">
+											<select class="form-control form-control-sm" name="region">
+												<option value="IN" selected>India</option>
+												<!--<option value="AF">Afghanistan</option>
+												<option value="AL">Albania</option>
+												<option value="DZ">Algeria</option>
+												<option value="AS">American Samoa</option>
+												<option value="AD">Andorra</option>
+												<option value="AO">Angola</option>
+												<option value="AI">Anguilla</option>
+												<option value="AQ">Antarctica</option>
+												<option value="AG">Antigua and Barbuda</option>-->
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="field valign-middle">City</td>
+										<td class="with-form-control">
+											<select class="form-control form-control-sm" name="region">
+												<option value="bangalore" selected>Bangalore</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="field">State</td>
+										<td><a href="javascript:;">Karnataka</a></td>
+									</tr>
+									<tr>
+										<td class="field valign-middle">Gender</td>
+										<td class="with-form-control">
+											<select class="form-control form-control-sm" name="gender">
+												<option value="male">Male</option>
+												<option value="female">Female</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="field valign-middle">Birthdate</td>
+										<td class="with-form-control">
+											<select class="form-control form-control-sm" name="day">
+												<option value="04" selected>04</option>
+											</select>
+											-
+											<select class="form-control form-control-sm" name="month">
+												<option value="11" selected>11</option>
+											</select>
+											-
+											<select class="form-control form-control-sm" name="year">
+												<option value="1989" selected>1989</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="divider">
+										<td colspan="2"></td>
+									</tr>
+									<tr class="highlight">
+										<td class="field">&nbsp;</td>
+										<td class="p-t-10 p-b-10">
+											<button type="submit" class="btn btn-primary width-150">Edit</button>
+											<!--<button type="button" class="btn btn-white btn-white-without-border width-150 m-l-5"><a href="/contractor">Back</a></button>-->
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- end table -->
+					</div>
+					<!-- end #profile-about tab -->
+					<!-- begin #profile-photos tab -->
+					<!--<div class="tab-pane fade" id="profile-photos">
+						<h4 class="m-t-0 m-b-20">Photos (70)</h4>-->
+			
+					
+					<!-- end #profile-photos tab -->
+					<!-- begin #profile-videos tab -->
+					<div class="tab-pane fade" id="profile-videos">
+						<h4 class="m-t-0 m-b-20">Videos (16)</h4>
+						<!-- begin row -->
+						<div class="row row-space-2">
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=RQ5ljyGg-ig" data-lity>
+								<img src="https://img.youtube.com/vi/RQ5ljyGg-ig/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=5lWkZ-JaEOc" data-lity>
+								<img src="https://img.youtube.com/vi/5lWkZ-JaEOc/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=9ZfN87gSjvI" data-lity>
+								<img src="https://img.youtube.com/vi/9ZfN87gSjvI/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=w2H07DRv2_M" data-lity>
+								<img src="https://img.youtube.com/vi/w2H07DRv2_M/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=PntG8KEVjR8" data-lity>
+								<img src="https://img.youtube.com/vi/PntG8KEVjR8/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=q8kxKvSQ7MI" data-lity>
+								<img src="https://img.youtube.com/vi/q8kxKvSQ7MI/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=cutu3Bw4ep4" data-lity>
+								<img src="https://img.youtube.com/vi/cutu3Bw4ep4/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=gCspUXGrraM" data-lity>
+								<img src="https://img.youtube.com/vi/gCspUXGrraM/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=COtpTM1MpAA" data-lity>
+								<img src="https://img.youtube.com/vi/COtpTM1MpAA/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=8NVkGHVOazc" data-lity>
+								<img src="https://img.youtube.com/vi/8NVkGHVOazc/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=QgQ7MWLsw1w" data-lity>
+								<img src="https://img.youtube.com/vi/QgQ7MWLsw1w/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=Dmw0ucCv8aQ" data-lity>
+								<img src="https://img.youtube.com/vi/Dmw0ucCv8aQ/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=r1d7ST2TG2U" data-lity>
+								<img src="https://img.youtube.com/vi/r1d7ST2TG2U/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=WUR-XWBcHvs" data-lity>
+								<img src="https://img.youtube.com/vi/WUR-XWBcHvs/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=A7sQ8RWj0Cw" data-lity>
+								<img src="https://img.youtube.com/vi/A7sQ8RWj0Cw/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+							<!-- begin col-3 -->
+							<div class="col-md-3 col-sm-4 m-b-2">
+								<a href="https://www.youtube.com/watch?v=IMN2VfiXls4" data-lity>
+								<img src="https://img.youtube.com/vi/IMN2VfiXls4/mqdefault.jpg" class="width-full" />
+								</a>
+							</div>
+							<!-- end col-3 -->
+						</div>
+						<!-- end row -->
+					</div>
+					<!-- end #profile-videos tab -->
+					<!-- begin #profile-friends tab -->
+					<div class="tab-pane fade" id="profile-friends">
+						<h4 class="m-t-0 m-b-20">Friend List (14)</h4>
+						<!-- begin row -->
+						<div class="row row-space-6">
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-1.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">James Pittman</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-2.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Mitchell Ashcroft</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-3.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Ella Cabena</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-4.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Declan Dyson</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-5.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">George Seyler</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-6.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Patrick Musgrove</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-7.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Taj Connal</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-8.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Laura Pollock</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-9.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Dakota Mannix</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-10.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Timothy Woolley</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-11.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Benjamin Congreve</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-12.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Mariam Maddock</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-13.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Blake Gerrald</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+							<!-- begin col-6 -->
+							<div class="col-xl-4 col-lg-6 m-b-5 p-b-1">
+								<div class="p-10 bg-white rounded">
+									<div class="media media-xs overflow-visible align-items-center">
+										<a class="media-left" href="javascript:;">
+										<img src="/admin/img/user/user-14.jpg" alt="" class="media-object img-circle" />
+										</a>
+										<div class="media-body valign-middle">
+											<b class="text-inverse">Gabrielle Bunton</b>
+										</div>
+										<div class="media-body valign-middle text-right overflow-visible">
+											<div class="btn-group btn-group-sm dropdown">
+												<a href="javascript:;" class="btn btn-default">Friends</a>
+												<a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><b class="caret"></b></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a href="javascript:;" class="dropdown-item">Action 1</a>
+													<a href="javascript:;" class="dropdown-item">Action 2</a>
+													<a href="javascript:;" class="dropdown-item">Action 3</a>
+													<div class="dropdown-divider"></div>
+													<a href="javascript:;" class="dropdown-item">Action 4</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end col-6 -->
+						</div>
+						<!-- end row -->
+					</div>
+					<!-- end #profile-friends tab -->
+				</div>
+				<!-- end tab-content -->
+			</div>
+			<!-- end profile-content -->
+		</div>
+		<!-- end #content -->
+		
+		<!-- begin theme-panel -->
+	
+		<!-- end theme-panel -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/admin/js/app.min.js"></script>
+	<script src="/admin/js/theme/default.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+	<script src="/admin/plugins/superbox/jquery.superbox.min.js"></script>
+	<script src="/admin/plugins/lity/dist/lity.min.js"></script>
+	<script src="/admin/js/demo/profile.demo.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+</body>
+</html>
